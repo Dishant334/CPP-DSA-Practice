@@ -1,0 +1,25 @@
+ #include<iostream>
+#include<vector>
+using namespace std;
+template<class T>
+class stack{
+    public:
+    vector <T> vec;
+    void push(T val){
+        vec.push_back(val);
+    }
+    void pop(){
+        vec.pop_back();
+    }
+    T top(){
+        T lastIDx=vec.size()-1;
+        return vec[lastIDx];
+    }
+};
+int main(){
+    stack<int> s1;
+    s1.push(3);
+    s1.push(2);
+    s1.push(1);
+    return 0;
+}
