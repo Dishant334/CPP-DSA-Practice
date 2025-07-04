@@ -1,5 +1,6 @@
 #include<iostream>
 #include<vector>
+#include<queue>
 using namespace std;
 class Node{
     public:
@@ -25,12 +26,22 @@ class Node{
 
     return currNode;
     }
-    
-    
+    int TreeHT(Node* root){
+      if(root==NULL){
+           return 0;
+      }
+      int leftHt=TreeHT(root->left);
+      int rightHt=TreeHT(root->right);
+
+      int currHt=max(leftHt,rightHt)+1;
+
+      return currHt;
+    }
 
 int main(){
     vector<int>nodes={1,2,4,-1,-1,5,-1,-1,3,-1,6,-1,-1};
     Node *root=buildTrees(nodes);
  cout << "Root (head) of the tree: " << root->data << endl;
+      cout<<"the height of the tree is :"<< TreeHT(root);
 
 }
