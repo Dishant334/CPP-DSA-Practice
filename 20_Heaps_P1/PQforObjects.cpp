@@ -14,7 +14,7 @@ class Student{
     }
 //we use operator overloading to make priority queue know on which basis to sort
 bool operator < (const Student &obj) const{
-    return this->marks < obj.marks;
+    return this->marks > obj.marks;
 }
 };
 int main(){
