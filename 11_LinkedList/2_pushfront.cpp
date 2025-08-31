@@ -23,7 +23,7 @@ class list{
     void push_front(int val){
         node *newNode=new node(val);
         if(tail==head){
-            tail=head=newNode=NULL;
+            tail=head=newNode;
         }
         else{
             newNode->next=head;
