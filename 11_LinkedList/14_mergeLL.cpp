@@ -66,29 +66,33 @@ void push_back(int val){
         }
     }
 node *merge(node *left,node *right){
-    list ans;
+    node * dummyNode =new node(-1);
+    node *p=dummyNode;
     node *i=left;
     node *j=right;
 
     while(i!=NULL &&j!=NULL){
         if(i->data<=j->data){
-            ans.push_back(i->data);
+            p->next=i;
             i=i->next;
         }else{
-            ans.push_back(j->data);
+            p->next=j;
             j=j->next;
         }
+        p=p->next;
     }
     while(i!=NULL){
-      ans.push_back(i->data);
+            p->next=i;
             i=i->next;
+            p=p->next;
     }
     while(j!=NULL){
-       ans.push_back(j->data);
+             p->next=j;
             j=j->next;
+            p=p->next;
     }
 
-return ans.head;
+return dummyNode->next;
 }
 
     node * mergeSort(node*head){
